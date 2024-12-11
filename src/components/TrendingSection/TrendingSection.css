@@ -1,0 +1,55 @@
+.trending-section {
+    padding: 20px;
+    background-color: #000;
+    color: white;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.movie-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    padding: 10px;
+}
+
+.movie-card {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    width: 200px;
+    padding: 15px;
+    flex-shrink: 0;
+    color: white;
+    text-align: center;
+}
+
+.movie-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.movie-card-info {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.movie-rating {
+    font-size: 16px;
+}
