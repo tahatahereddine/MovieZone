@@ -1,6 +1,6 @@
 import React from 'react';
 import './TrendingSection.css';
-import oppenheimer from '../../assets/oppenheimer.webp';
+import oppenheimer from './oppenheimer.webp';
 
 const TrendingSection = () => {
     const trendingMovies = [
