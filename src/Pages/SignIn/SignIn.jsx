@@ -10,10 +10,9 @@ function SignIn(){
             justifyContent: "space-between",
             alignItems: "center",
             height: "100vh",
-            background: "hsl(0, 0%, 46%)",
+            background: "#060b26",
             border: "1px solid black",
-            borderRadius: "10px",
-
+            margin: "0",
         },
         signinPic: {
             flex: "1",
@@ -21,6 +20,7 @@ function SignIn(){
             justifyContent: "center",
             alignItems: "center",
             height: "100%",
+            borderRadius: "10px",
         },
         image: {
             maxWidth: "100%",
@@ -90,7 +90,7 @@ function SignIn(){
                     <p>Enjoy the newest movies</p>
                 </div>
                 <div className="signinform" style={styles.signinform}>
-                    <form style={styles.form} >
+                    <form style={styles.form} action="/home" >
                         <input style={styles.input} type="text" placeholder="example@mail.com" />
                         <input style={styles.input} type="password" placeholder="Password" />
                         <button style={styles.button}

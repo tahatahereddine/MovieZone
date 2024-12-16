@@ -1,0 +1,135 @@
+.categories {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.categories ul {
+    display: flex;
+    list-style-type: none;
+    font-weight: 600;
+    width: fit-content;
+    border: 0px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.categories ul li {
+    padding: 20px 30px;
+    background-color: white;
+    color: #E11D48;
+}
+.categories ul li:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.categories ul li:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+@media (max-width: 900px) {
+    .categories ul li:first-child {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    .categories ul li:last-child {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+  }
+.categories ul li:hover,
+.categories ul li.clicked{
+    transition: 0.5s;
+    background-color: #E11D48;
+    color: white;
+    cursor: pointer;
+}
+  .moviess-lists {
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .favorite_clicked {
+    fill: #E11D48;
+}
+  .posters img {
+      width: 260px;
+  height: 370px;
+  flex-shrink: 0;
+  }
+  .movies-lists {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .movies {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 260px;
+      position: relative;
+  }
+  .movies .favorite {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.movies .favorite .heart{
+    position: absolute;
+    bottom: 10%;
+}
+.movies .favorite:hover .heart path{
+    transition: 0.5s;
+    fill: #E11D48;
+}
+  .movies .details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+  }
+  .movies .details .date {
+      color: var(--gray-400, #9CA3AF);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  }
+  .movies .details .title {
+      color: #FFF;
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  }
+  .movies .details .rating {
+      display: flex;
+      justify-content: space-between;
+  }
+  .movies .details .rating .imdb {
+      display: flex;
+      gap: 5px;
+      align-items: flex-start;
+  }
+  .movies .details .rating .imdb p {
+      color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  }
+  .movies .details .rating .rotten {
+      display: flex;
+      gap: 5px;
+      align-items: flex-start;
+  }
+  .movies .details .rating .rotten p {
+      color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  }
