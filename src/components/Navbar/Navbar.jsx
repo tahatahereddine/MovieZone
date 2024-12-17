@@ -7,6 +7,7 @@ import { SidebarData } from "./SidebarData";
 import { IconContext } from "react-icons";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { BiCameraMovie } from "react-icons/bi";
 function Navbar() {
     const [sidebar, setSidebar] = React.useState(false);
     const showSidebar = () => setSidebar(!sidebar);
@@ -18,7 +19,7 @@ function Navbar() {
             <Link to='#' className="menu-bars">
                 <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-            <div className="logo"><Link to='/home' >MOVIEZONE</Link></div>
+            <div className="logo"><Link to='/home' ><BiCameraMovie style={{color: "gold"}} /><span>MOVIEZONE</span></Link></div>
             <div><p>Movies</p></div>
             <div><p>Series</p></div>
             <div><p>Documentaries</p></div>
@@ -48,7 +49,7 @@ function Navbar() {
                     <Link className="menu-bars" onClick={showSidebar}>
                         <AiIcons.AiOutlineClose />
                     </Link>
-                    <div className="logo"><Link to='/home' >MOVIEZONE</Link></div>
+                    <div className="logo"><Link to='/home' ><BiCameraMovie style={{color: "gold"}} /><span>MOVIEZONE</span></Link></div>
                 </li>
                 {SidebarData.map((item, index)=>{
                     return(

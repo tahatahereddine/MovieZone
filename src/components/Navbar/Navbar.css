@@ -15,7 +15,7 @@
 
 .nav-menu{
     background-color: #060b26;
-    width: 250px;
+    width: 270px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -37,12 +37,13 @@
     padding: 8px 0px 8px 16px;
     list-style: none;
     height: 60px;
+    margin: 16px;
 }
 
 .nav-text a{
     text-decoration: none;
     color: #f5f5f5;
-    font-size: 18px;
+    font-size: 20px;
     width: 95%;
     height: 100%;
     display: flex; 
@@ -76,11 +77,13 @@
     color: gold;
     justify-self: start;
     margin-left: 20px;
+    display: flex;
 }
 .logo a{
     text-decoration: none;
     color: gold;
-    font-size: 25px;
+    font-size: 24px;
+    display: flex;
 }
 
 p{

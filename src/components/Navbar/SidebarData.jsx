@@ -1,6 +1,6 @@
 import React from "react";
 import { FaFilm } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
+import { FaRegHeart } from "react-icons/fa";
 import { IoMdTrendingUp } from "react-icons/io";
 import { MdOutlineCalendarToday } from "react-icons/md";
 import { GiSettingsKnobs } from "react-icons/gi";
@@ -15,7 +15,7 @@ export const SidebarData = [
     {
         title: "Favourites",
         path: "/favourites",
-        icon: <CiHeart />,
+        icon: <FaRegHeart />,
         cName: "nav-text",
     },
     {
