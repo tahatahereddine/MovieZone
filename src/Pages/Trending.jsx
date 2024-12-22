@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card/Card';
 import '../components/Card/Card.css';
+import './Trending.css';
 
 function Trending() {
     const [movies, setMovies] = useState(null);
