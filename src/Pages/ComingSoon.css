@@ -1,0 +1,14 @@
+
+.coming-soon {
+    padding: 20px;
+    margin-left: 300px;
+  }
+  
+  .coming-soon h1 {
+      margin-bottom: 20px;
+  }
+  .card-list{
+      display: flex;
+      display: block;
+      gap: 20px;
+  }
