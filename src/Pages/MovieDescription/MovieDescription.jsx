@@ -76,10 +76,10 @@ function MovieDescription() {
 
     return (
         <div className="movie-desc-container">
+            <h1>{movie.title}</h1>
+            <p className="tagline">{movie.tagline}</p>
             <div className={`movie-header ${showTrailer ? 'movie-header-trailer' : ''}`}>
-                 <div style={{width: showTrailer ? '100%' : '120%', marginRight: showTrailer ? 0 : '20px' }}>
-                   <h1>{movie.title}</h1>
-                    <p className="tagline">{movie.tagline}</p>
+                <div style={{width: showTrailer ? '100%' : '120%', marginRight: showTrailer ? 0 : '20px' }}>
                     {!showTrailer && (
                          <div
                           className="movie-poster"
@@ -108,17 +108,17 @@ function MovieDescription() {
                          {!youtubeUrl && (
                            <p>No trailer available.</p>
                            )}
-                   </div>
-                   <div className="movie-details">
-                        <p className="overview">{movie.overview}</p>
-                        <div className="additional-details">
-                                <p><strong>Release Date:</strong> {movie.release_date}</p>
-                                <p><strong>Rating:</strong> {Number(movie.vote_average).toFixed(1)}</p>
-                                <p><strong>Runtime:</strong> {movie.runtime} mins</p>
-                                <p><strong>Genres:</strong> {movie.genres.map((g) => g.name).join(", ")}</p>
-                                <p><strong>Production Companies:</strong> {movie.production_companies.map((c) => c.name).join(", ")}</p>
-                        </div>
+                </div>
+                <div className="movie-details">
+                    <p className="overview">{movie.overview}</p>
+                    <div className="additional-details">
+                            <p><strong>Release Date:</strong> {movie.release_date}</p>
+                            <p><strong>Rating:</strong> {Number(movie.vote_average).toFixed(1)}</p>
+                            <p><strong>Runtime:</strong> {movie.runtime} mins</p>
+                            <p><strong>Genres:</strong> {movie.genres.map((g) => g.name).join(", ")}</p>
+                            <p><strong>Production Companies:</strong> {movie.production_companies.map((c) => c.name).join(", ")}</p>
                     </div>
+                </div>
              </div>
         </div>
     );

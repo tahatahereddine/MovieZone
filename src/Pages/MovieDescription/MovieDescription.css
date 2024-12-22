@@ -2,7 +2,7 @@
     position: relative;
     margin-top: 100px;
     margin-left: 270px;
-    max-width: 1200px;
+    max-width: 1300px;
     background-color: #060b26;
     padding: 30px;
     border-radius: 10px;
@@ -14,7 +14,7 @@
 
 .movie-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     margin-bottom: 20px;
 }
@@ -23,7 +23,7 @@
    flex-direction: column;
 }
 
-.movie-header h1 {
+.movie-desc-container h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
      width: 100%;
@@ -42,6 +42,8 @@
     margin-right: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .movie-poster img {
@@ -73,7 +75,7 @@
 
 .movie-details {
     overflow: hidden;
-    margin-top: 100px;
+    /* margin-top: 100px;   */
 }
 
 .overview {
@@ -87,9 +89,7 @@
 .additional-details {
     font-size: 1.5rem;
     line-height: 1.5;
-    /* margin-top: 20px; */
-    position: absolute;
-    bottom: 30px;
+    margin-top: 20px;
 }
 
 .additional-details p {
