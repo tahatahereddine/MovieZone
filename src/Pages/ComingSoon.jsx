@@ -16,7 +16,7 @@ function ComingSoon() {
              const today = new Date();
             const minDate = today.toISOString().split('T')[0];
             const maxDateObj = new Date(today);
-            maxDateObj.setDate(today.getDate() + 180);
+            maxDateObj.setDate(today.getDate() + 120);
             const maxDate = maxDateObj.toISOString().split('T')[0];
 
 
