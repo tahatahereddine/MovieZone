@@ -1,14 +1,11 @@
 /*  !!!!!!    RESOLUTION 70% DE LA PAGE  !!!!!*/
-/*  !!!!!!    a cause de la barre du navigateur la page ne commence pas a top:0 et left: 0   !!!!!*/
-.coming-soon {
+/*  !!!!!!    a cause *PEUT ETRE* de la barre du navigateur la page ne commence pas a top:0 et left: 0   !!!!!*/
+.trending {
     padding: 20px;
     margin-left: 300px;
     margin-top: 1000px;
   }
   
-  .coming-soon h1 {
-      margin-bottom: 20px;
-  }
   .card-list{
       display: flex;
       display: block;
