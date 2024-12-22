@@ -40,7 +40,7 @@ function Home() {
                         return genre.name? genre.name: "";
                     }
                 })}
-                rating={movie.vote_average}
+                rating={Number(movie.vote_average).toFixed(1)}
                 ></Card>
             ))}
 
