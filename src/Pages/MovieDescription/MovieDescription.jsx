@@ -32,7 +32,7 @@ function MovieDescription() {
                 <p className="overview">{movie.overview}</p>
                 <div className="additional-details">
                     <p><strong>Release Date:</strong> {movie.release_date}</p>
-                    <p><strong>Rating:</strong> {movie.vote_average}</p>
+                    <p><strong>Rating:</strong> {Number(movie.vote_average).toFixed(1)}</p>
                     <p><strong>Runtime:</strong> {movie.runtime} mins</p>
                     <p><strong>Genres:</strong> {movie.genres.map((g) => g.name).join(", ")}</p>
                     <p><strong>Production Companies:</strong> {movie.production_companies.map((c) => c.name).join(", ")}</p>
