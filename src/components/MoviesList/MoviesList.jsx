@@ -21,7 +21,7 @@ function moviesList(props){
 
     return(
         <div className="movies-list" style={styles.moviesList}>
-            <h1 style={{color:" #ffd700", margin:"0 0 20px 30px"}}>Discover</h1>
+            <h1 style={{color:" #ffd700", margin:"0 0 20px 30px"}}>{props.title || "Discover"}</h1>
             {props.movies.map((movie) => (
                 <div
                 key={movie.id}
