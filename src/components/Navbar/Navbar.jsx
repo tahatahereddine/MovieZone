@@ -58,7 +58,6 @@ function Navbar() {
                                 {item.icon} &nbsp;&nbsp;
                                 <span>{item.title}</span>
                             </Link>
-
                         </li>
                     );
                 })}
