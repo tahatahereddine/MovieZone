@@ -1,43 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../components/Card/Card';
-import './ComingSoon.css';
-import '../components/Card/Card.css';
+import MoviesList from '../components/MoviesList/MoviesList';
 
 function ComingSoon() {
     const [movies, setMovies] = useState(null);
+    const [genre, setGenre] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const API_KEY = '1de54ccbfea3c2dcfeffd0338867c3b5';
+    const API_KEY = '1de54ccbfea3c2dcfeffd0338867c3b5'; // ou utilise `process.env.REACT_APP_API_TOKEN` si tu utilise les variables d'environnement
 
     useEffect(() => {
-        const fetchMovies = async () => {
+        const fetchMoviesAndGenres = async () => {
             setLoading(true);
             setError(null);
 
-            const today = new Date();
+             const today = new Date();
             const minDate = today.toISOString().split('T')[0];
             const maxDateObj = new Date(today);
             maxDateObj.setDate(today.getDate() + 180);
             const maxDate = maxDateObj.toISOString().split('T')[0];
 
-            const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&primary_release_date.gte=${minDate}&primary_release_date.lte=${maxDate}`;
-
 
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                const [moviesResponse, genresResponse] = await Promise.all([
+                  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&primary_release_date.gte=${minDate}&primary_release_date.lte=${maxDate}`),
+                  fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
+                ]);
+
+                 if (!moviesResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${moviesResponse.status}`);
+                }
+                 if (!genresResponse.ok) {
+                    throw new Error(`HTTP error! Status: ${genresResponse.status}`);
                 }
 
-                const data = await response.json();
+                const moviesData = await moviesResponse.json();
+                 const genresData = await genresResponse.json();
 
-                if (data && data.results && data.results.length > 0) {
-                    setMovies(data.results);
-                }  else if (data && data.results && data.results.length === 0) {
-                    setMovies([]);
-                }else{
-                    setError("Aucun film à venir trouvé.");
-                }
+                 setMovies(moviesData.results);
+                 setGenre(genresData.genres);
+
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -45,49 +46,29 @@ function ComingSoon() {
             }
         };
 
-        fetchMovies();
+        fetchMoviesAndGenres();
     }, [API_KEY]);
 
-    if (loading) {
+   if (loading) {
         return (
-            <div className="coming-soon">
-                <h1>Chargement des films à venir...</h1>
-            </div>
+            <div>Chargement des films à venir...</div>
         );
     }
 
     if (error) {
         return (
-            <div className="coming-soon">
-                <h1>Erreur: {error}</h1>
-            </div>
+            <div>Erreur: {error}</div>
         );
     }
 
-    if (!movies || movies.length === 0) {
+    if (!movies || !genre ) {
         return (
-            <div className="coming-soon">
-                <h1>Aucun film à venir trouvé</h1>
-            </div>
+            <div>Aucun film à venir trouvé</div>
         )
     }
-
+    
     return (
-        <div className="coming-soon">
-            <div className="card-list">
-                {movies &&
-                    movies.map((movie) => (
-                        <Card
-                            key={movie.id}
-                            image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                            title={movie.title}
-                            release_date={movie.release_date}
-                            rating={movie.vote_average}
-                        />
-                    ))
-                }
-            </div>
-        </div>
+        <MoviesList movies={movies} genre={genre} title="Coming Soon !" />
     );
 }
 
