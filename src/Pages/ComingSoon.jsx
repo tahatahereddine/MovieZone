@@ -16,8 +16,11 @@ function ComingSoon() {
 
             const today = new Date();
             const minDate = today.toISOString().split('T')[0];
+            const maxDateObj = new Date(today);
+            maxDateObj.setDate(today.getDate() + 180);
+            const maxDate = maxDateObj.toISOString().split('T')[0];
 
-            const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&primary_release_date.gte=${minDate}`;
+            const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3&primary_release_date.gte=${minDate}&primary_release_date.lte=${maxDate}`;
 
 
             try {
@@ -71,7 +74,6 @@ function ComingSoon() {
 
     return (
         <div className="coming-soon">
-            <h1>Prochainement</h1>
             <div className="card-list">
                 {movies &&
                     movies.map((movie) => (
