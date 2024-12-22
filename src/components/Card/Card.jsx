@@ -1,30 +1,18 @@
-
-function Card({img, title, description}){
-    const styles = {
-        card: {
-            width: '18rem',
-            margin: '1rem',
-        },
-        img: {
-            width: '100%',
-            height: '200px',
-            objectFit: 'cover',
-        },
-        cardBody: {
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-        },
-    }
+import "./Card.css";
+function Card(props){
     return(
-        <div className="card" style={styles.card}>
-            <img src={img} style={styles.card} alt="casa de papel picture"/>
-            <div className="card-body" style={styles.cardBody}>
-                <h5>salah :{title}</h5>
-                <p>{description}</p>
-                <a href="#">Go somewhere</a>
+        <>
+            <div className="movie-card">
+                <div className="card-picture">
+                    <img className="movie-picture" src={props.image} alt={props.title} />
+                </div>
+                <div className="card-info">
+                    <p className="movie-title">{props.title}</p>
+                    <p className="movie-release_date">{props.release_date} | </p>
+                    <p className="movie-rating">{props.rating}</p>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 export default Card;
