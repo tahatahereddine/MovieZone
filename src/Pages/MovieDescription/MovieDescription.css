@@ -68,7 +68,7 @@
 
 .movie-details {
     overflow: hidden;
-     margin-top: 100px;
+    margin-top: 100px;
 }
 
 .overview {
@@ -82,8 +82,9 @@
 .additional-details {
     font-size: 1.5rem;
     line-height: 1.5;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    /* margin-top: 20px; */
+    position: absolute;
+    bottom: 30px;
 }
 
 .additional-details p {
