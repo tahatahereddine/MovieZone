@@ -38,6 +38,7 @@ function Home() {
     
     return (
         <div className="movies-list" style={styles.moviesList}>
+            <h1 style={{color:" #ffd700", margin:"0 0 20px 30px"}}>Discover</h1>
             {movies.map((movie) => (
                 <div
                 key={movie.id}

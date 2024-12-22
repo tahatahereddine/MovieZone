@@ -24,8 +24,17 @@
     padding: 0;
     margin: 0;
 }
+
+
+.movie-release_date, .movie-rating {
+    color: #f5f5f5c7;
+    font-size: 1.2rem;
+}
+.card-info span{
+    color:#ffd700;
+}
 .movie-title{
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 500px;
     color: #f5f5f5;
 }
