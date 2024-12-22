@@ -9,6 +9,7 @@ import Trending from "./Pages/Trending";
 import ComingSoon from "./Pages/ComingSoon";
 import Settings from "./Pages/Settings";
 import Logout from "./Pages/Logout";
+import MovieDescription from "./Pages/MovieDescription/MovieDescription";
 import "./App.css";
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDescription />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/trending" element={<Trending />} />
         <Route path="/coming-soon" element={<ComingSoon />} />

@@ -1,0 +1,66 @@
+.movie-desc-container {
+    position: relative;
+    margin-top: 100px;
+    margin-left: 270px;
+    max-width: 1200px;
+    background-color: #060b26;
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Ensure floated elements are contained */
+}
+
+.movie-poster {
+    float: left;
+    width: 300px; /* Fixed width for the poster */
+    margin-right: 20px; /* Space between the poster and details */
+}
+
+.movie-poster img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.movie-details {
+    overflow: hidden; /* Clear the float to prevent layout breaking */
+}
+
+.movie-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.overview {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.additional-details {
+    position: absolute;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    bottom: 30px;
+}
+
+.additional-details p {
+    margin: 5px 0;
+}
+
+.loading {
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+}
