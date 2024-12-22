@@ -8,7 +8,7 @@ function Card(props){
                 </div>
                 <div className="card-info">
                     <p className="movie-title">{props.title}</p>
-                    <p className="movie-release_date">{props.release_date} | {props.rating} <span style={{color:"ffd700"}}>★</span>
+                    <p className="movie-release_date">{props.release_date} | {props.rating} <span>★</span>
                     </p>
                     {/* <p className="movie-rating"></p> */}
                 </div>
