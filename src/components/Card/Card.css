@@ -3,7 +3,7 @@
     display: inline-block;
     width: 250px;
     vertical-align: top;
-    height: 700px;
+    height: 600px;
     margin-bottom: 10px;
     margin-right: 30px; ;
 }
@@ -21,8 +21,10 @@
 }
 
 .card-info {
+    display: block;
     padding: 0;
     margin: 0;
+    background-color: aqua;
 }
 .movie-title{
     font-size: 34px;
