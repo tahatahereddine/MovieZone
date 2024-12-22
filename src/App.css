@@ -14,6 +14,7 @@
 .settings, 
 .logout {
     display: flex;
+    color: white;
     justify-content: center;
     align-items: center;
     height: 90vh;

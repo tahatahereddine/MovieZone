@@ -56,7 +56,7 @@
 }
 
 .nav-text a:hover{
-    background-color: #1a83ff;
+    color: hsla(0, 0%, 100%, 0.748);
 }
 
 .nav-menu-items{
