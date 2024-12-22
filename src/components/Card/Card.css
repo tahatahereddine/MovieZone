@@ -10,11 +10,14 @@
 .card-picture {
     display: block;
     width: 250px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
+
 }
 .movie-picture{
     width: 100%;
+    height: 100%;
     border-radius: 10px;
+
 }
 
 .card-info {

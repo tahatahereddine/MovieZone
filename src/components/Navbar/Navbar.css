@@ -7,6 +7,7 @@
     position: fixed;
     width: 100%;
     margin-bottom: 80px;
+    margin-left: 280px;
 }
 
 
@@ -55,11 +56,12 @@
     border-radius: 4px;
 }
 
-.nav-text a:hover{
-    color: hsla(0, 0%, 100%, 0.748);
+.nav-text a:hover, .nav-text a:hover span, .nav-text a:hover svg{
+    background-color: #1a83ff;
 }
 
 .nav-menu-items{
+    
     width: 100%;
 }
 
@@ -72,9 +74,9 @@
     align-items: center;
 }
 
-.span{
+/* .span{
     margin-left: 16px;
-}
+} */
 
 .logo{
     color: gold;
