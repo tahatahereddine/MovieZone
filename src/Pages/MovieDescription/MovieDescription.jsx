@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import "./MovieDescription.css";
 
 function MovieDescription() {
-    const { id } = useParams();
-    const [movie, setMovie] = useState(null);
-    const [videos, setVideos] = useState(null);
-     const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+  const [videos, setVideos] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+  const [showTrailer, setShowTrailer] = useState(false);
+
     useEffect(() => {
         const fetchMovieData = async () => {
           setLoading(true);
@@ -52,7 +54,6 @@ function MovieDescription() {
         }
       return videos.find(video => video.site === "YouTube")?.key || null
     }
-
     if (loading) {
         return <div className="loading">Loading...</div>;
     }
@@ -63,48 +64,62 @@ function MovieDescription() {
     if (!movie) {
         return <div className="loading">Loading...</div>;
     }
+
  const trailerKey = getTrailerKey(videos);
-  const youtubeUrl = trailerKey ? `https://www.youtube.com/watch?v=${trailerKey}` : null;
-
-
+ const youtubeUrl = trailerKey ? `https://www.youtube.com/embed/${trailerKey}` : null;
     const handleImageClick = () => {
-       if (youtubeUrl) {
-            window.open(youtubeUrl, "_blank", "noopener,noreferrer");
-        }
-    }
-
+       if(youtubeUrl){
+       setShowTrailer(true)
+       }
+  };
 
 
     return (
         <div className="movie-desc-container">
-            <h1>{movie.title}</h1>
-             <p className="tagline">{movie.tagline}</p>
-            <div className="movie-poster" onClick={handleImageClick} style={{cursor: "pointer"}}>
-                <img
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt={movie.title}
-                />
-            </div>
-            <div className="movie-details">
-                <p className="overview">{movie.overview}</p>
-                <div className="additional-details">
-                    <p><strong>Release Date:</strong> {movie.release_date}</p>
-                    <p><strong>Rating:</strong> {Number(movie.vote_average).toFixed(1)}</p>
-                    <p><strong>Runtime:</strong> {movie.runtime} mins</p>
-                    <p><strong>Genres:</strong> {movie.genres.map((g) => g.name).join(", ")}</p>
-                    <p><strong>Production Companies:</strong> {movie.production_companies.map((c) => c.name).join(", ")}</p>
-                     {youtubeUrl && (
-                        <p>
-                          <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
-                                   Watch Trailer
-                           </a>
-                        </p>
-                         )}
-                      {!youtubeUrl && (
-                       <p> No trailer available.</p>
-                      )}
-                </div>
-            </div>
+            <div className={`movie-header ${showTrailer ? 'movie-header-trailer' : ''}`}>
+                 <div style={{width: showTrailer ? '100%' : '120%', marginRight: showTrailer ? 0 : '20px' }}>
+                   <h1>{movie.title}</h1>
+                    <p className="tagline">{movie.tagline}</p>
+                    {!showTrailer && (
+                         <div
+                          className="movie-poster"
+                            onClick={handleImageClick}
+                           style={{ cursor: "pointer" }}
+                            >
+                           <img
+                             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                              alt={movie.title}
+                            />
+                         </div>
+                       )}
+                        {youtubeUrl && showTrailer && (
+                            <div className="video-container">
+                                <iframe
+                                    width="100%"
+                                    height="315"
+                                    src={youtubeUrl}
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                     ></iframe>
+                            </div>
+                        )}
+                         {!youtubeUrl && (
+                           <p>No trailer available.</p>
+                           )}
+                   </div>
+                   <div className="movie-details">
+                        <p className="overview">{movie.overview}</p>
+                        <div className="additional-details">
+                                <p><strong>Release Date:</strong> {movie.release_date}</p>
+                                <p><strong>Rating:</strong> {Number(movie.vote_average).toFixed(1)}</p>
+                                <p><strong>Runtime:</strong> {movie.runtime} mins</p>
+                                <p><strong>Genres:</strong> {movie.genres.map((g) => g.name).join(", ")}</p>
+                                <p><strong>Production Companies:</strong> {movie.production_companies.map((c) => c.name).join(", ")}</p>
+                        </div>
+                    </div>
+             </div>
         </div>
     );
 }
