@@ -23,7 +23,9 @@ function Home() {
         moviesList: {
             marginLeft: "270px",
             justifyContent: "center",
-            backgroundColor: "#060b26"
+            backgroundColor: "#060b26",
+            display: "inline-block",
+            marginTop: "80px"
         }
     }
     return (

@@ -1,14 +1,15 @@
 .movie-card {
     margin-left: 30px;
     display: inline-block;
-    width: 300px;
+    width: 250px;
     vertical-align: top;
     height: 700px;
     margin-bottom: 10px;
+    margin-right: 30px; ;
 }
 .card-picture {
     display: block;
-    width: 300px;
+    width: 250px;
     margin-bottom: 12px;
 }
 .movie-picture{
