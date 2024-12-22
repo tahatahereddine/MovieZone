@@ -8,8 +8,8 @@ function Card(props){
                 </div>
                 <div className="card-info">
                     <p className="movie-title">{props.title}</p>
-                    <p className="movie-release_date">{props.release_date} | </p>
-                    <p className="movie-rating">{props.rating}</p>
+                    <p className="movie-release_date">{props.release_date} | {props.rating} <span>★</span>
+                    </p>
                 </div>
             </div>
         </>
