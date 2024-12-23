@@ -1,126 +1,138 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./MovieDescription.css";
 import fallback from "../../images/fallback.png";
 
 function MovieDescription() {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  const [videos, setVideos] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-  const [showTrailer, setShowTrailer] = useState(false);
+    const location = useLocation();
+    const { item, type } = location.state || {}; // Destructure the passed state
+    const [trailerKey, setTrailerKey] = useState(null);
+    const [loadingTrailer, setLoadingTrailer] = useState(false);
+    const [showTrailer, setShowTrailer] = useState(false); // Controls trailer visibility
 
     useEffect(() => {
-        const fetchMovieData = async () => {
-          setLoading(true);
-           setError(null);
-            try {
-                const [movieResponse, videosResponse] = await Promise.all([
-                    fetch(
-                        `https://api.themoviedb.org/3/movie/${id}?api_key=1de54ccbfea3c2dcfeffd0338867c3b5`
-                    ),
-                    fetch(
-                        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=1de54ccbfea3c2dcfeffd0338867c3b5`
-                    ),
-                ]);
+        if (type === "movie") {
+            const fetchTrailer = async () => {
+                setLoadingTrailer(true);
+                try {
+                    const response = await fetch(
+                        `https://api.themoviedb.org/3/movie/${item.id}/videos?api_key=1de54ccbfea3c2dcfeffd0338867c3b5`
+                    );
 
-                if (!movieResponse.ok) {
-                    throw new Error(`HTTP error! Status: ${movieResponse.status}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        const trailer = data.results.find(
+                            (video) =>
+                                video.type === "Trailer" && video.site === "YouTube"
+                        );
+                        setTrailerKey(trailer ? trailer.key : null);
+                    }
+                } catch (error) {
+                    console.error("Failed to fetch trailer:", error);
+                } finally {
+                    setLoadingTrailer(false);
                 }
-                 if (!videosResponse.ok) {
-                   throw new Error(`HTTP error! Status: ${videosResponse.status}`);
-               }
+            };
 
-               const movieData = await movieResponse.json();
-               const videosData = await videosResponse.json();
-
-                setMovie(movieData);
-                setVideos(videosData.results);
-            } catch (err) {
-              setError(err.message)
-            } finally {
-             setLoading(false);
-          }
-        };
-         fetchMovieData();
-    }, [id]);
-
-
-   const getTrailerKey = (videos) => {
-         if (!videos || videos.length === 0) return null;
-          const trailer = videos.find(video => video.type === "Trailer" && video.site === "YouTube");
-           if (trailer) {
-              return trailer.key;
+            fetchTrailer();
         }
-      return videos.find(video => video.site === "YouTube")?.key || null
-    }
-    if (loading) {
-        return <div className="loading">Loading...</div>;
-    }
-    if (error) {
-        return <div className="loading">Error: {error}</div>;
-    }
+    }, [item.id, type]);
 
-    if (!movie) {
-        return <div className="loading">Loading...</div>;
-    }
-
- const trailerKey = getTrailerKey(videos);
- const youtubeUrl = trailerKey ? `https://www.youtube.com/embed/${trailerKey}` : null;
     const handleImageClick = () => {
-       if(youtubeUrl){
-       setShowTrailer(true)
-       }
-  };
+        if (trailerKey) {
+            setShowTrailer(true); // Show trailer when poster is clicked
+        }
+    };
 
+    if (!item) {
+        return <div className="loading">No details available.</div>;
+    }
+
+    const youtubeUrl = trailerKey
+        ? `https://www.youtube.com/embed/${trailerKey}`
+        : null;
 
     return (
         <div className="movie-desc-container">
-            <h1>{movie.title}</h1>
-            <p className="tagline">{movie.tagline}</p>
-            <div className={`movie-header ${showTrailer ? 'movie-header-trailer' : ''}`}>
-                <div style={{width: showTrailer ? '100%' : '120%', marginRight: showTrailer ? 0 : '20px' }}>
+            <h1>{item.title || item.name}</h1>
+            <p className="tagline">{item.tagline}</p>
+            <div
+                className={`movie-header ${
+                    showTrailer ? "movie-header-trailer" : ""
+                }`}
+            >
+                <div
+                    style={{
+                        width: showTrailer ? "100%" : "120%",
+                        marginRight: showTrailer ? 0 : "20px",
+                    }}
+                >
                     {!showTrailer && (
-                         <div
-                          className="movie-poster"
+                        <div
+                            className="movie-poster"
                             onClick={handleImageClick}
-                           style={{ cursor: "pointer" }}
-                            >
-                           <img
-                             src={movie.poster_path===null? fallback :`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                              alt={movie.title}
+                            style={{ cursor: trailerKey ? "pointer" : "default" }}
+                        >
+                            <img
+                                src={
+                                    item.poster_path
+                                        ? `https://image.tmdb.org/t/p/original${item.poster_path}`
+                                        : fallback
+                                }
+                                alt={item.title || item.name}
                             />
-                         </div>
-                       )}
-                        {youtubeUrl && showTrailer && (
-                            <div className="video-container">
-                                <iframe
-                                    width="100%"
-                                    height="315"
-                                    src={youtubeUrl}
-                                    title="YouTube video player"
-                                    frameBorder="0"
-                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                     ></iframe>
-                            </div>
-                        )}
-                         {!youtubeUrl && (
-                           <p>No trailer available.</p>
-                           )}
+                        </div>
+                    )}
+                    {showTrailer && youtubeUrl && (
+                        <div className="video-container">
+                            <iframe
+                                width="100%"
+                                height="315"
+                                src={youtubeUrl}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                    )}
+                    {showTrailer && !youtubeUrl && (
+                        <p>No trailer available.</p>
+                    )}
                 </div>
                 <div className="movie-details">
-                    <p className="overview">{movie.overview}</p>
+                    <p className="overview">{item.overview}</p>
                     <div className="additional-details">
-                            <p><strong>Release Date:</strong> {movie.release_date}</p>
-                            <p><strong>Rating:</strong> {Number(movie.vote_average).toFixed(1)}</p>
-                            <p><strong>Runtime:</strong> {movie.runtime} mins</p>
-                            <p><strong>Genres:</strong> {movie.genres.map((g) => g.name).join(", ")}</p>
-                            <p><strong>Production Companies:</strong> {movie.production_companies.map((c) => c.name).join(", ")}</p>
+                        <p>
+                            <strong>Release Date:</strong> {item.release_date || item.first_air_date}
+                        </p>
+                        <p>
+                            <strong>Rating:</strong> {Number(item.vote_average).toFixed(1)}
+                        </p>
+                        {type === "movie" && item.runtime && (
+                            <p>
+                                <strong>Runtime:</strong> {item.runtime} mins
+                            </p>
+                        )}
+                        {type === "series" && item.episode_run_time && (
+                            <p>
+                                <strong>Episode Runtime:</strong>{" "}
+                                {item.episode_run_time[0]} mins
+                            </p>
+                        )}
+                        <p>
+                            <strong>Genres:</strong>{" "}
+                            {item.genres?.map((g) => g.name).join(", ") || "N/A"}
+                        </p>
+                        <p>
+                            <strong>Production Companies:</strong>{" "}
+                            {item.production_companies
+                                ?.map((c) => c.name)
+                                .join(", ") || "N/A"}
+                        </p>
                     </div>
                 </div>
-             </div>
+            </div>
         </div>
     );
 }

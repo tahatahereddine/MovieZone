@@ -12,8 +12,6 @@ function Search(){
             .then(response => response.json())
             .then(data => {
                 setSearchResult1(data.results);
-                console.log(data.results);
-                console.log("Search results fetched successfully");
             })
             .catch(error => {
                 console.error("Error fetching search results:", error);
@@ -39,7 +37,6 @@ function Search(){
                 });
     }, [search]);
     const searchResult = searchResult1.concat(searchResult2);
-    console.log(searchResult2);
     return (
         <>
             <MoviesList movies={searchResult1} series={searchResult2} genre={genre} title={"Titres similaire à \"" + search + "\""}></MoviesList>
