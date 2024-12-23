@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import * as FaIcons from "react-icons/fa";
 import { SidebarData } from "./SidebarData";
@@ -8,6 +8,12 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { BiCameraMovie } from "react-icons/bi";
 function Navbar() {
+    const [search, setSearch] = React.useState("");
+    const navigate = useNavigate();
+    function handleSearch(e) {
+        navigate(`/search/${e}`);
+        console.log("searched for", e);
+    }
   return (
     <>
     <IconContext.Provider value={{ color: "#fff" }}>
@@ -18,9 +24,20 @@ function Navbar() {
             <div><p>Documentaries</p></div>
             <div className="header-actions">
                 <button className="icon-button">
-                    <Link style={{ margin: '5px', padding: '0px' }} to='/search'>
-                        <FaIcons.FaSearch />
-                    </Link>
+                    <div className="search">
+                                <input
+                                    type="text"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    placeholder="what do you want to see?" />
+                                <button
+                                    onClick={() => handleSearch(search)}
+                                    style={{ margin: '5px', padding: '0px', background: 'none', border: 'none' }}
+                                >
+                                    <FaIcons.FaSearch />
+                                </button>
+                    </div >
+                    
                 </button>
                 <button className="icon-button">
                     <Link>
