@@ -28,7 +28,7 @@ function moviesList(props){
                 // onClick={() => handleCardClick(movie.id)}
                 style={{ display: "inline-block", cursor: "pointer" }}
                 >
-                <Card image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                <Card image={movie.poster_path === null ? 'fallback' : `https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 id={movie.id}
                 title={movie.title}
                 release_date={movie.release_date}
