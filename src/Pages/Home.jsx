@@ -10,7 +10,6 @@ function Home() {
             .then((response) => response.json())
             .then((data) => {
                 setMovies(data.results);
-                console.log(data.results);
             });
         }, []);
     useEffect(() => {
@@ -18,7 +17,6 @@ function Home() {
             .then((response) => response.json())
             .then((data) => {
                 setGenre(data.genres);
-                console.log(data.genres);
             });
         }, []);
    
