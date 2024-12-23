@@ -6,7 +6,8 @@ function Card(props){
                 <div className="card-picture">
                     <img className="movie-picture" src={props.image} alt={props.title} />
                 </div>
-                <div className="card-info">
+                <div className="card-info" onClick={() => props.handleClick(props.id)}>
+
                     <p className="movie-title">{props.title}</p>
                     <p className="movie-release_date">{props.release_date} | {props.rating} <span>★</span>
                     </p>
