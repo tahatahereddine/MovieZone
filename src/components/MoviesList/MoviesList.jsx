@@ -31,7 +31,7 @@ function moviesList(props){
                 >
                 <Card poster_path={movie.poster_path === null ? 'fallback' : `https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 id={movie.id}
-                title={movie.title}
+                title={movie.title || movie.name}
                 release_date={movie.release_date}
                
                 vote_average={Number(movie.vote_average).toFixed(1)}
