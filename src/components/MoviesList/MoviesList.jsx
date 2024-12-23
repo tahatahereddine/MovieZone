@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState,useContext, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../Card/Card";
+function MoviesList(props){
 
-function moviesList(props){
     const navigate = useNavigate();
 
     const styles ={
@@ -20,6 +20,8 @@ function moviesList(props){
         navigate(`/movie/${id}`);
     };
 
+   
+
     return(
         <div className="movies-list" style={styles.moviesList}>
             <h1 style={{color:" #ffd700", margin:"0 0 20px 30px"}}>{props.title || "Discover"}</h1>
@@ -33,7 +35,7 @@ function moviesList(props){
                 id={movie.id}
                 title={movie.title}
                 release_date={movie.release_date}
-               
+                handleFavourites={props.handleFavourites}
                 vote_average={Number(movie.vote_average).toFixed(1)}
                 ></Card>
                 </div>
@@ -41,4 +43,4 @@ function moviesList(props){
         </div>
     );
 }
-export default moviesList;
+export default MoviesList;

@@ -7,7 +7,10 @@ import { IconContext } from "react-icons";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { BiCameraMovie } from "react-icons/bi";
-function Navbar() {
+
+
+function Navbar(props) {
+    const favourites = props.favourites;
     const [search, setSearch] = React.useState("");
     const navigate = useNavigate();
     function handleSearch(e) {
@@ -61,7 +64,7 @@ function Navbar() {
                 {SidebarData.map((item, index)=>{
                     return(
                         <li key={index} className={item.cName} >
-                            <Link to={item.path}>
+                            <Link to={item.path=="/favourites"?`/favourites/${favourites}`:item.path} >
                                 {item.icon} &nbsp;&nbsp;
                                 <span>{item.title}</span>
                             </Link>

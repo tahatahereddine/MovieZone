@@ -17,9 +17,10 @@ function Card(props) {
     const toggleFavorite = (event) => {
         event.stopPropagation();
         setIsFavorite(!isFavorite);
-        props.addToFavourite(event, movie);
+        props.handleFavourites(event, movie);
+        console.log("added to favourite", movie);
     };
-
+        
     return (
         <>
             <div className="movie" key={movie.id}>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import MoviesList from "../components/MoviesList/MoviesList";
 
-function Home() {
+function Home(props) {
     const [movies, setMovies] = useState([]);
     const [genre, setGenre] = useState([]);
 
@@ -19,9 +19,8 @@ function Home() {
                 setGenre(data.genres);
             });
         }, []);
-   
     return (
-        <MoviesList movies={movies} genre={genre}></MoviesList>
+        <MoviesList movies={movies} handleFavourites={props.handleFavourites} ></MoviesList>
     );
 }
 export default Home;
