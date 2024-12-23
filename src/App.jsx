@@ -11,27 +11,33 @@ import Settings from "./Pages/Settings";
 import Logout from "./Pages/Logout";
 import MovieDescription from "./Pages/MovieDescription/MovieDescription";
 import Search from "./Pages/Search/Search";
+import Movies from "./Pages/Movies";
+import Series from "./Pages/Series";
+import Documentaries from "./Pages/Documentaries";
 import "./App.css";
-function App() {
 
+function App() {
   return (
     <>
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/movie/:id" element={<MovieDescription />} />
-        <Route path="/search/:search" element={<Search />} />
-        <Route path="/favourites" element={<Favourites />} />
-        <Route path="/trending" element={<Trending />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/logout" element={<Logout />} />
-      </Routes>
-    </Router>
-    </> 
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/documentaries" element={<Documentaries />} />
+          <Route path="/movie/:id" element={<MovieDescription />} />
+          <Route path="/search/:search" element={<Search />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route path="/trending" element={<Trending />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
