@@ -15,7 +15,7 @@ function Series() {
 
             try {
                 const response = await fetch(
-                    `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`
+                    `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}`
                  );
 
                 if (!response.ok) {
