@@ -25,13 +25,14 @@ function moviesList(props){
             {props.movies.map((movie) => (
                 <div
                 key={movie.id}
-                onClick={() => handleCardClick(movie.id)}
+                // onClick={() => handleCardClick(movie.id)}
                 style={{ display: "inline-block", cursor: "pointer" }}
                 >
                 <Card image={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 id={movie.id}
                 title={movie.title}
                 release_date={movie.release_date}
+                handleClick={handleCardClick}
                 genres={props.genre.map((genre) => {
                     if(movie.genre_ids.includes(genre.id)){
                         return genre.name ? genre.name: "";
