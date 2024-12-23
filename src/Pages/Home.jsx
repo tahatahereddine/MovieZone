@@ -20,7 +20,7 @@ function Home(props) {
             });
         }, []);
     return (
-        <MoviesList movies={movies} handleFavourites={props.handleFavourites} ></MoviesList>
+        <MoviesList movies={movies} ></MoviesList>
     );
 }
 export default Home;

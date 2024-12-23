@@ -129,6 +129,10 @@
     background-color: #1a83ff;
 }
 
+nav-text span{
+    margin-left: 16px;
+}
+
 .nav-menu-items{
     
     width: 100%;

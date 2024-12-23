@@ -35,7 +35,6 @@ function MoviesList(props){
                 id={movie.id}
                 title={movie.title}
                 release_date={movie.release_date}
-                handleFavourites={props.handleFavourites}
                 vote_average={Number(movie.vote_average).toFixed(1)}
                 ></Card>
                 </div>
