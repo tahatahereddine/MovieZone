@@ -39,9 +39,10 @@ function Search(){
                 });
     }, [search]);
     const searchResult = searchResult1.concat(searchResult2);
+    console.log(searchResult2);
     return (
         <>
-            <MoviesList movies={searchResult} genre={genre} title={"Titres similaire à \"" + search + "\"    "}></MoviesList>
+            <MoviesList movies={searchResult1} series={searchResult2} genre={genre} title={"Titres similaire à \"" + search + "\""}></MoviesList>
         </>
     );
 }

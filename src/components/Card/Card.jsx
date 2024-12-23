@@ -56,7 +56,7 @@ function Card(props) {
                     </div>
                 </div>
                 <div className="poster">
-                    <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} />
+                    <img src={img} alt={movie.title} />
                 </div>
                 <div className="details">
                     <p className="title">{props.title}</p>

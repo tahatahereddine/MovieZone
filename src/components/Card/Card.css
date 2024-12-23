@@ -5,6 +5,9 @@
 svg {
     color: #FFF;
 }
+.poster{
+    margin-bottom: 15px;
+}
 
 .poster img {
     width: 250px;
@@ -20,6 +23,13 @@ svg {
     vertical-align: top;
     margin-bottom: 55px;
     margin-left: 30px;
+}
+.movie {
+    transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover {
+    transform: scale(1.05);
 }
 .movie .favorite {
     position: absolute;

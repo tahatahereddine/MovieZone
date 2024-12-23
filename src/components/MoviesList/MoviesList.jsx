@@ -88,16 +88,16 @@ function MoviesList(props) {
       <div style={{ display: "flex", alignItems: "center", margin: "0 0 20px 30px" }}>
         <h1 style={{ color: "#ffd700", margin: 0, flexGrow: 1 }}>{props.title || "Discover"}</h1>
         <span
-          style={{ cursor: "pointer", marginRight: "20px", color: "white" }}
+          style={{ cursor: "pointer", marginRight: "20px", color: "gold", fontSize: "15px" }}
           onClick={() => setShowGenres(!showGenres)}
         >
-          <FaFilter style={{ cursor: "pointer" }} />
+          <FaFilter style={{verticalAlign:"bottom", cursor: "pointer", color: "gold" }} />filter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </span>
         <span
-          style={{ cursor: "pointer", marginRight: "20px", color: "white" }}
+          style={{ cursor: "pointer", marginRight: "20px", color: "gold", fontSize: "15px" }}
           onClick={() => setShowFilters(!showFilters)}
         >
-          <FaSort style={{ cursor: "pointer" }} />sort by
+          <FaSort style={{verticalAlign:"bottom", cursor: "pointer", color: "gold" }} />sort by
         </span>
         {showFilters && (
           <div
@@ -105,7 +105,7 @@ function MoviesList(props) {
               zIndex: "10000",
               position: "absolute",
               top: "120px",
-              right: "50px",
+              right: "20px",
               backgroundColor: "yellow",
               padding: "10px",
               borderRadius: "10px",
@@ -133,7 +133,7 @@ function MoviesList(props) {
               zIndex: "10000",
               position: "absolute",
               top: "120px",
-              right: "150px",
+              right: "160px",
               backgroundColor: "yellow",
               padding: "10px",
               borderRadius: "10px",
