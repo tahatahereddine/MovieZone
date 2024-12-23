@@ -19,7 +19,7 @@ function Home() {
         const loadMovies = async () => {
             const data = await fetchMovies(page);
             setMovies(data.results);
-            setTotalPages(data.total_pages);
+            setTotalPages(500);
         };
         loadMovies();
     }, [page]); // Refetch movies when the page changes
