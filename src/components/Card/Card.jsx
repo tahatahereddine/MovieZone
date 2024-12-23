@@ -12,6 +12,8 @@ function Card(props) {
         poster_path: img,
         release_date: props.release_date,
         vote_average: props.vote_average,
+        popularity: props.popularity,
+        genres: props.genres,
     };
 
     const toggleFavorite = (event) => {
@@ -58,11 +60,11 @@ function Card(props) {
                 </div>
                 <div className="details">
                     <p className="title">{props.title}</p>
-                    <p className="date">{props.release_date}</p>
+                    <p className="date">{props.release_date} | {movie.genres[0]}</p>
                     <div className="rating">
                         <div className="imdb">
                             <img src={imdb} alt="IMDB Logo" />
-                            <p>{`${movie.vote_average}/10`}<span>★</span></p>
+                            <p>{`${movie.vote_average}/10`}<span>★</span> | popularity:{movie.popularity}</p>
                         </div>
                     </div>
                 </div>
