@@ -41,7 +41,7 @@ function Search(){
     const searchResult = searchResult1.concat(searchResult2);
     return (
         <>
-            <MoviesList movies={searchResult} genre={genre} ></MoviesList>
+            <MoviesList movies={searchResult} genre={genre} title={"Titres similaire à \"" + search + "\"    "}></MoviesList>
         </>
     );
 }

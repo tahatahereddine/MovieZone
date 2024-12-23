@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./MovieDescription.css";
+import fallback from "../../images/fallback.png";
 
 function MovieDescription() {
   const { id } = useParams();
@@ -87,7 +88,7 @@ function MovieDescription() {
                            style={{ cursor: "pointer" }}
                             >
                            <img
-                             src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                             src={movie.poster_path===null? fallback :`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                               alt={movie.title}
                             />
                          </div>
