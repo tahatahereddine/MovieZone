@@ -62,7 +62,7 @@ function Series() {
 
     return (
         <>
-            <MoviesList movies={series} title="Series" />
+            <MoviesList movies={{}} series={{series}} title="Series" />
             <Pagination
                 pageCount={TOTAL_PAGES}
                 handlePageClick={handlePageClick}
