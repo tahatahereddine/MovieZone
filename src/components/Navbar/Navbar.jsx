@@ -17,11 +17,10 @@ function Navbar() {
   return (
     <>
     <IconContext.Provider value={{ color: "#fff" }}>
-
         <div className="navbar" >
-            <div><p>Movies</p></div>
-            <div><p>Series</p></div>
-            <div><p>Documentaries</p></div>
+             <div><Link to='/movies'><p>Movies</p></Link></div>
+            <div><Link to='/series'><p>Series</p></Link></div>
+            <div><Link to='/documentaries'><p>Documentaries</p></Link></div>
             <div className="header-actions">
                 <button className="icon-button">
                     <div className="search">
@@ -52,7 +51,6 @@ function Navbar() {
             </div>
 
         </div> 
-
         <nav className='nav-menu active' >
             <ul className="nav-menu-items" >
                 <li className="navbar-toggle">
@@ -62,7 +60,7 @@ function Navbar() {
                     return(
                         <li key={index} className={item.cName} >
                             <Link to={item.path}>
-                                {item.icon} &nbsp;&nbsp;
+                                {item.icon}   
                                 <span>{item.title}</span>
                             </Link>
                         </li>
