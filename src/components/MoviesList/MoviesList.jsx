@@ -11,7 +11,8 @@ function moviesList(props){
             justifyContent: "center",
             display: "inline-block",
             marginTop: "80px",
-            backgroundColor: "#060b26"
+            backgroundColor: "#060b26", 
+            zIndex: "1",
         }
     }
 
@@ -25,20 +26,15 @@ function moviesList(props){
             {props.movies.map((movie) => (
                 <div
                 key={movie.id}
-                // onClick={() => handleCardClick(movie.id)}
+                onClick={() => handleCardClick(movie.id)}
                 style={{ display: "inline-block", cursor: "pointer" }}
                 >
-                <Card image={movie.poster_path === null ? 'fallback' : `https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                <Card poster_path={movie.poster_path === null ? 'fallback' : `https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 id={movie.id}
                 title={movie.title}
                 release_date={movie.release_date}
-                handleClick={handleCardClick}
-                genres={props.genre.map((genre) => {
-                    if(movie.genre_ids.includes(genre.id)){
-                        return genre.name ? genre.name: "";
-                    }
-                })}
-                rating={Number(movie.vote_average).toFixed(1)}
+               
+                vote_average={Number(movie.vote_average).toFixed(1)}
                 ></Card>
                 </div>
             ))}
