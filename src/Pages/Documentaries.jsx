@@ -14,7 +14,7 @@ function Documentaries() {
 
             const today = new Date();
             const minDateObj = new Date(today);
-            maxDateObj.setDate(today.getDate() - 365); //1 an
+            minDateObj.setDate(today.getDate() - 365); //1 an
             const minDate = minDateObj.toISOString().split('T')[0];
 
 
