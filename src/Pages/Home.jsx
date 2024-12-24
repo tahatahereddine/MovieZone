@@ -28,7 +28,6 @@ function Home(props) {
         const selectedPage = data.selected + 1; // Adjust for zero-based index
         setPage(selectedPage);
     };
-    console.log(movies);
 
     return (
         <>

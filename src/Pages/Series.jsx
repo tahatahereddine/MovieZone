@@ -37,7 +37,6 @@ function Series() {
             setLoading(false);
         }
     };
-    console.log(series);
 
     useEffect(() => {
         fetchSeries(currentPage);
@@ -62,7 +61,7 @@ function Series() {
 
     return (
         <>
-            <MoviesList movies={{}} series={{series}} title="Series" />
+            <MoviesList movies={[]} series={series} title="Series" />
             <Pagination
                 pageCount={TOTAL_PAGES}
                 handlePageClick={handlePageClick}
