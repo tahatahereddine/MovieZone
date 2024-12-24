@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import SignInPic from "./signin.png"; 
 
 function SignUp(){
     const [hover, setHover] = useState(false);
@@ -7,28 +6,14 @@ function SignUp(){
     const styles = {
         signinPage: {
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "center",
             alignItems: "center",
             height: "100vh",
             background: "#060b26",
-            border: "1px solid black",
+            border: "none",
             margin: "0",
-
-        },
-        signinPic: {
-            flex: "1",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-        },
-        image: {
-            maxWidth: "100%",
-            height: "100%",
-            backgroundColor: "transparent",
         },
         signin: {
-            flex: "1",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -81,9 +66,6 @@ function SignUp(){
     };
     return (
         <div className="signinPage" style={styles.signinPage}>
-            <div className="signinPic" style={styles.signinPic}>
-                <img src={SignInPic} alt="cinema pictue"/>
-            </div>
             <div className="signin" style={styles.signin}>
                 <div style={styles.signinheader}>
                     <h1 style={styles.logo}>MOVIEZONE</h1>
