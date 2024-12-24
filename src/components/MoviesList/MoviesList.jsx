@@ -95,6 +95,11 @@ function MoviesList(props) {
     const sortedMovies = sortMovies(props.movies);
     const sortedSeries = props.series ? sortMovies(props.series) : [];
 
+    const getGenreName = (id) => {
+        const genre = genres.find((genre) => genre.id === id);
+        return genre ? genre.name : "Unknown"; // Return name or fallback
+    };
+
     return (
         <div className="movies-list" style={styles.moviesList}>
             <div
@@ -244,7 +249,8 @@ function MoviesList(props) {
                         }
                         id={movie.id}
                         title={movie.title || movie.name}
-                        release_date={movie.release_date}
+                        release_date={movie.release_date.split("-")[0]}
+                        genre={getGenreName(movie.genre_ids[0])}
                         vote_average={Number(movie.vote_average).toFixed(1)}
                     />
                 </div>
@@ -264,6 +270,7 @@ function MoviesList(props) {
                         id={serie.id}
                         title={serie.name}
                         release_date={serie.first_air_date.split("-")[0]}
+                        genre={getGenreName(serie.genre_ids[0])}
                         vote_average={Number(serie.vote_average).toFixed(1)}
                     />
                 </div>
