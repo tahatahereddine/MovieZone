@@ -20,9 +20,9 @@ function Navbar(props) {
     <>
     <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar" >
-             <div><Link to='/movies'><p>Movies</p></Link></div>
-            <div><Link to='/series'><p>Series</p></Link></div>
-            <div><Link to='/documentaries'><p>Documentaries</p></Link></div>
+             <div><Link style={{textDecoration: "none"}} to='/movies'><p>Movies</p></Link></div>
+            <div><Link style={{textDecoration: "none"}} to='/series'><p>Series</p></Link></div>
+            <div><Link style={{textDecoration: "none"}} to='/documentaries'><p>Documentaries</p></Link></div>
             <div className="header-actions">
                 <button className="icon-button">
                     <div className="search">

@@ -29,6 +29,7 @@ function Home(props) {
         setPage(selectedPage);
     };
 
+    console.log(movies);
     return (
         <>
             <MoviesList movies={movies} genre={{}}></MoviesList>
