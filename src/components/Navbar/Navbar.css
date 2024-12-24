@@ -8,7 +8,7 @@
     position: fixed;
     width: calc(100% - 280px);
     top: 0;
-    left: 270px; 
+    left: 270px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
@@ -34,7 +34,6 @@
     box-shadow: 0 4px 15px rgba(26, 131, 255, 0.3);
     text-decoration: none;
 }
-
 
 /* Header actions */
 .header-actions {
@@ -136,7 +135,7 @@
     font-size: 20px;
     width: 95%;
     height: 100%;
-    display: flex; 
+    display: flex;
     align-items: center;
     padding: 0 16px;
     border-radius: 4px;
