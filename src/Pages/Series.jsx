@@ -6,9 +6,9 @@ function Series() {
     const [series, setSeries] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1); // State to track the current page
-    const API_KEY = '1de54ccbfea3c2dcfeffd0338867c3b5';
-    const TOTAL_PAGES = 100; // Assuming the API has 100 pages of data
+    const [currentPage, setCurrentPage] = useState(1);
+    const API_KEY = import.meta.env.VITE_API_KEY;
+    const TOTAL_PAGES = 100; 
 
     const fetchSeries = async (page) => {
         setLoading(true);
@@ -40,10 +40,10 @@ function Series() {
 
     useEffect(() => {
         fetchSeries(currentPage);
-    }, [currentPage]); // Refetch series when the page changes
+    }, [currentPage]); 
 
     const handlePageClick = (data) => {
-        const selectedPage = data.selected + 1; // Convert zero-based index to one-based page
+        const selectedPage = data.selected + 1;
         setCurrentPage(selectedPage);
     };
 
@@ -65,7 +65,7 @@ function Series() {
             <Pagination
                 pageCount={TOTAL_PAGES}
                 handlePageClick={handlePageClick}
-                currentPage={currentPage - 1} // Adjust for zero-based index
+                currentPage={currentPage - 1}
             />
         </>
     );

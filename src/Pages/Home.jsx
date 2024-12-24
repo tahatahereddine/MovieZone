@@ -7,9 +7,12 @@ function Home(props) {
     const [page, setPage] = useState(1); // Start from page 1
     const [totalPages, setTotalPages] = useState(0);
 
+    const API_KEY = import.meta.env.VITE_API_KEY;
+
+
     const fetchMovies = async (currentPage) => {
         const res = await fetch(
-            `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=1de54ccbfea3c2dcfeffd0338867c3b5&page=${currentPage}`
+            `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=${API_KEY}&page=${currentPage}`
         );
         const data = await res.json();
         return data;
@@ -22,10 +25,10 @@ function Home(props) {
             setTotalPages(500);
         };
         loadMovies();
-    }, [page]); // Refetch movies when the page changes
+    }, [page]);
 
     const handlePageClick = (data) => {
-        const selectedPage = data.selected + 1; // Adjust for zero-based index
+        const selectedPage = data.selected + 1;
         setPage(selectedPage);
     };
 

@@ -7,9 +7,10 @@ function Movies() {
     const [genre, setGenre] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(10); // State to track the current page
-    const API_KEY = '1de54ccbfea3c2dcfeffd0338867c3b5';
-    const TOTAL_PAGES = 500; // Assuming the API has 500 pages
+    const [currentPage, setCurrentPage] = useState(1); 
+    const API_KEY = import.meta.env.VITE_API_KEY;
+    ;
+    const TOTAL_PAGES = 500;
 
     const fetchMoviesAndGenres = async (page) => {
         setLoading(true);
@@ -71,7 +72,7 @@ function Movies() {
             <Pagination
                 pageCount={TOTAL_PAGES}
                 handlePageClick={handlePageClick}
-                currentPage={currentPage - 1} // Adjust for zero-based index
+                currentPage={currentPage - 1}
             />
         </>
     );

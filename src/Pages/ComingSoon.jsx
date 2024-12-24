@@ -8,7 +8,7 @@ function ComingSoon() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const API_KEY = '1de54ccbfea3c2dcfeffd0338867c3b5';
+    const API_KEY = import.meta.env.VITE_API_KEY;
     const TOTAL_PAGES = 80;
 
     const fetchMoviesAndGenres = async (page) => {
