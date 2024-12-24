@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import { FaSort, FaFilter } from "react-icons/fa";
 
 function MoviesList(props) {
+    // List of genres for filtering and displaying
     const genres = [
         { id: 28, name: "Action" },
         { id: 12, name: "Adventure" },
@@ -52,18 +53,29 @@ function MoviesList(props) {
         },
     };
 
+    // Navigate to MovieDescription with the item details
     const handleCardClick = (item, type) => {
         navigate(`/movie/${item.id}`, { state: { item, type } });
     };
 
+    // Get genre name from genre ID
+    const getGenreName = (id) => {
+        const genre = genres.find((genre) => genre.id === id);
+        return genre ? genre.name : "Unknown"; // Return name or fallback
+    };
+
+    // Sort and filter movies/series
     const sortMovies = (movies) => {
         let filteredMovies = movies;
+
+        // Filter by selected genres
         if (selectedGenres.length > 0) {
             filteredMovies = filteredMovies.filter((movie) =>
-                movie.genre_ids.some((id) => selectedGenres.includes(id))
+                movie.genre_ids?.some((id) => selectedGenres.includes(id))
             );
         }
 
+        // Sort by selected criteria
         if (!sort) return filteredMovies;
 
         const [key, order] = sort.split(".");
@@ -92,13 +104,9 @@ function MoviesList(props) {
         );
     };
 
-    const sortedMovies = sortMovies(props.movies);
+    // Sort movies and series
+    const sortedMovies = sortMovies(props.movies || []);
     const sortedSeries = props.series ? sortMovies(props.series) : [];
-
-    const getGenreName = (id) => {
-        const genre = genres.find((genre) => genre.id === id);
-        return genre ? genre.name : "Unknown"; // Return name or fallback
-    };
 
     return (
         <div className="movies-list" style={styles.moviesList}>
@@ -235,6 +243,7 @@ function MoviesList(props) {
                 )}
             </div>
 
+            {/* Render movies */}
             {sortedMovies.map((movie) => (
                 <div
                     key={movie.id}
@@ -249,12 +258,14 @@ function MoviesList(props) {
                         }
                         id={movie.id}
                         title={movie.title || movie.name}
-                        release_date={movie.release_date.split("-")[0]}
-                        genre={getGenreName(movie.genre_ids[0])}
+                        release_date={movie.release_date?.split("-")[0] || "Unknown"}
+                        genre={getGenreName(movie.genre_ids?.[0])}
                         vote_average={Number(movie.vote_average).toFixed(1)}
                     />
                 </div>
             ))}
+
+            {/* Render series */}
             {sortedSeries.map((serie) => (
                 <div
                     key={serie.id}
@@ -269,8 +280,8 @@ function MoviesList(props) {
                         }
                         id={serie.id}
                         title={serie.name}
-                        release_date={serie.first_air_date.split("-")[0]}
-                        genre={getGenreName(serie.genre_ids[0])}
+                        release_date={serie.first_air_date?.split("-")[0] || "Unknown"}
+                        genre={getGenreName(serie.genre_ids?.[0])}
                         vote_average={Number(serie.vote_average).toFixed(1)}
                     />
                 </div>

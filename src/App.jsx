@@ -14,6 +14,7 @@ import Search from "./Pages/Search/Search";
 import Movies from "./Pages/Movies";
 import Series from "./Pages/Series";
 import Documentaries from "./Pages/Documentaries";
+import CompanyPage from "./Pages/CompanyPage/CompanyPage";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/series" element={<Series />} />
         <Route path="/documentaries" element={<Documentaries />} />
         <Route path="/movie/:id" element={<MovieDescription />} />
+        <Route path="/company/:id" element={<CompanyPage />} />
         <Route path="/search/:search" element={<Search />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/trending" element={<Trending />} />
