@@ -262,8 +262,8 @@ function MoviesList(props) {
                                 : "fallback"
                         }
                         id={serie.id}
-                        title={serie.name || serie.title}
-                        release_date={serie.release_date}
+                        title={serie.name}
+                        release_date={serie.first_air_date.split("-")[0]}
                         vote_average={Number(serie.vote_average).toFixed(1)}
                     />
                 </div>
