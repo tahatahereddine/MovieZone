@@ -58,7 +58,7 @@ function Card(props) {
                 </div>
                 <div className="details">
                     <p className="title">{props.title}</p>
-                    <p className="date">{props.release_date}</p>
+                    <p className="date">{props.release_date} | {props.genre}</p> 
                     <div className="rating">
                         <div className="imdb">
                             <img src={imdb} alt="IMDB Logo" />
