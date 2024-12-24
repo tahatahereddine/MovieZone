@@ -64,7 +64,7 @@ function Card(props) {
                     <div className="rating">
                         <div className="imdb">
                             <img src={imdb} alt="IMDB Logo" />
-                            <p>{`${movie.vote_average}/10`}<span>★</span> | popularity:{movie.popularity}</p>
+                            <p>{`${movie.vote_average}/10`}<span>★</span> | popularity: {movie.popularity}</p>
                         </div>
                     </div>
                 </div>

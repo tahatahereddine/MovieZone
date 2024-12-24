@@ -7,7 +7,7 @@ function Movies() {
     const [genre, setGenre] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1); // State to track the current page
+    const [currentPage, setCurrentPage] = useState(10); // State to track the current page
     const API_KEY = '1de54ccbfea3c2dcfeffd0338867c3b5';
     const TOTAL_PAGES = 500; // Assuming the API has 500 pages
 
@@ -18,7 +18,7 @@ function Movies() {
         try {
             const [moviesResponse, genresResponse] = await Promise.all([
                 fetch(
-                    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}&sort_by=popularity.desc&include_adult=false`
+                    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=${page}&sort_by=popularity.desc&include_adult=false&page=10`
                 ),
                 fetch(
                     `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`

@@ -18,7 +18,7 @@ function SignUp(){
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            background: "hsl(0, 0%, 46%)",
+            background: "hsl(0, 0.00%, 82.40%)",
             padding: "20px",
             borderRadius: "10px",
             margin: "20px", 
@@ -46,7 +46,7 @@ function SignUp(){
             padding: "10px",
             marginBottom: "15px",
             border: "none",
-            background: "hsl(0, 0.00%, 62.70%)",
+            background: "hsl(0, 0.00%, 60.80%)",
             borderRadius: "10px",
         },
         button: {
@@ -61,7 +61,7 @@ function SignUp(){
         p: {
             textAlign: "center",
             marginTop: "20px",
-            fontSize: "0.8rem",
+            fontSize: "1.1rem",
         },
     };
     return (
@@ -83,7 +83,7 @@ function SignUp(){
                         onMouseOver={()=>setHover(true)}
                         onMouseOut={()=>setHover(false)}
                         type="submit">Sign In</button>
-                        <p style={styles.p}>I have an account? <a href="/">Sign In</a></p>
+                        <p style={styles.p}>I have an account? <a style={{color: "hsla(250, 100%, 50%, 0.51)"}} href="/">Sign In</a></p>
                     </form>
                 </div>
             </div> 
