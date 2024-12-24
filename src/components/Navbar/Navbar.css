@@ -22,7 +22,6 @@
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 4px;
-    background: linear-gradient(to right, transparent 50%, #1a83ff 50%);
     background-size: 200% 100%;
     background-position: left bottom;
 }
@@ -31,9 +30,10 @@
     color: white;
     transform: scale(1.05);
     background-position: right bottom;
-    box-shadow: 0 4px 15px rgba(26, 131, 255, 0.3);
     text-decoration: none;
 }
+
+
 
 /* Header actions */
 .header-actions {
