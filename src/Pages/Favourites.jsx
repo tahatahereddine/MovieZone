@@ -32,13 +32,13 @@ function Favourites() {
   if (favouriteMovies.length === 0) {
     return (
       <div style={{ 
-        marginLeft: '270px', 
-        marginTop: '80px', 
+        marginLeft: '150px', 
+        marginBottom: '40px', 
         color: '#fff',
         textAlign: 'center'
       }}>
-        <h1>Your Favourites</h1>
-        <p>No favourite movies added yet.</p>
+        <h1 style={{fontSize:"3rem", color:"#ffd700"}}>Your Favourites</h1>
+        <p style={{fontSize:"2rem"}}>No favourite movies added yet.</p>
       </div>
     );
   }
